@@ -24,7 +24,12 @@ Class Mahasiswa memiliki Atribut dan Method sebagai berikut:
 4. Method setNIM, digunakan untuk mengubah nilai atribut Nim
    ![nim](https://github.com/user-attachments/assets/8b291329-1d17-4503-9eb9-12f28b50f649)
 
+- <i><b>Instansiasi Objek Class Mahasiswa: </b></i>
+![instansiasi maha](https://github.com/user-attachments/assets/858bade4-b8a1-4d79-bfbf-2572ffd37101) 
+
 <h2>Output Class Mahasiswa: </h2>
+![Screenshot 2024-10-14 112055](https://github.com/user-attachments/assets/895686ec-244e-4d92-9390-172d361c7ec2)
+
 
 <h3>B.Tugas</h3>
 <h4><i>Class Dosen</i></h4>
@@ -35,15 +40,21 @@ Class Dosen memiliki Atribut dan Method sebagai berikut:
 1. $nama : Nama Dosen
 2. $nip : Nomor Induk Pegawai
 3. $mataKuliah : Mata Kuliah yang diampu
+   ![dosen](https://github.com/user-attachments/assets/428293f0-7144-4931-aad6-bc2d849c7132) <br>
 
 - <i><b>Method:</b></i>
 1. Method Construct, digunakan untuk menginisialisasi atribut yang berisikan nama, nip dan mataKuliah untuk untuk mengatur nilai awal pada saat dibuat yang ada pada Class Dosen
-   ![construc](https://github.com/user-attachments/assets/389ae0f3-f299-40c4-9227-b4abe441853b) <br>
+![konstruk](https://github.com/user-attachments/assets/ae793008-a53c-4c0e-8d76-9353bd885ba1) <br>
+
 2. Methode tampilkanDosen(), digunakan untuk Informasi Dosen
-   ![tampilData](https://github.com/user-attachments/assets/ce527731-2775-4e5c-bde7-e85280019912) <br>
+   ![tampildosen](https://github.com/user-attachments/assets/39618b9b-b5ca-4167-b0f4-e055e6e04f39) <br>
+
+- <i><b>Instansiasi Objek Class Mahasiswa: </b></i>
+![instansiasi deosen](https://github.com/user-attachments/assets/f80e4beb-815b-470a-9f03-e5fd588c4764) <br>
 
 <h2>Ouput Class Dosen: </h2>
-![Screenshot 2024-10-14 110954](https://github.com/user-attachments/assets/0cd412da-fcd8-4ff4-a005-3cd14da4d635)
+![Screenshot 2024-10-14 110217](https://github.com/user-attachments/assets/3541d6c6-765b-46a9-a329-947df338b0cd)
+
 
 
 

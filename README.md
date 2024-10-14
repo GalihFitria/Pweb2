@@ -1,5 +1,6 @@
-# Praktikum Web 2 - Jobsheet1
-## <i>OOP (Object Oriented Programming)</i>
+# Praktikum Web 2 
+## Jobsheet1
+### <i>OOP (Object Oriented Programming)</i>
 OOP (Object-Oriented Programming) atau Pemrograman Berorientasi Objek adalah sebuah paradigma pemrograman yang berfokus pada penggunaan objek dalam mengorganisir kode. OOP menggabungkan data dan perilaku (fungsi atau metode) ke dalam entitas yang disebut objek. Objek-objek ini didasarkan pada kelas, yang merupakan blueprint (cetak biru) untuk menciptakan objek.
 <h2>Implementasi Kelas</h2>
 <h3>A. Instruksi Kerja</h3>

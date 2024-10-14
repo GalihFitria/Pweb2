@@ -28,7 +28,7 @@ Class Mahasiswa memiliki Atribut dan Method sebagai berikut:
 ![instansiasi maha](https://github.com/user-attachments/assets/858bade4-b8a1-4d79-bfbf-2572ffd37101) 
 
 <h2>Output Class Mahasiswa: </h2>
-![Screenshot 2024-10-14 112055](https://github.com/user-attachments/assets/895686ec-244e-4d92-9390-172d361c7ec2)
+<img src='https://github.com/user-attachments/assets/895686ec-244e-4d92-9390-172d361c7ec2'>
 
 
 <h3>B.Tugas</h3>

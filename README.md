@@ -37,7 +37,7 @@ Metode yang sama dapat memiliki implementasi berbeda dalam class yang berbeda.
 - <b>Abstraction: </b>
 Menyembunyikan detail implementasi dan hanya menampilkan fungsi penting.
 
-
+# PERTEMUAN 1-2
 # JOBSHEET 1 : Menggunakan Konsep Kelas dan Objek dalam PHP
 <h2>Class Mahasiswa - Instruksi kerja</h2>
 <h3>a) Buat class Mahasiswa yang memiliki atribut nama, nim, dan jurusan</h3>
@@ -260,8 +260,45 @@ echo $dosen1->tampilkanDosen();
 <h3>Ouput Class Dosen: </h3>
 <img src='https://github.com/user-attachments/assets/3541d6c6-765b-46a9-a329-947df338b0cd'>
 
+# PERTEMUAN 3-4
 # JOBSHEET 2 : Implementasi Prinsip OOP dalam PHP
+<h2>1. Membuat Class dan Object</h2>
+<h3>a) Buat class Mahasiswa yang memiliki atribut nama, nim, dan jurusan</h3>
 
+```php
+<?php
+<?php
+//Definisi Kelas
+class Mahasiswa
+{
+    //Atribut
+    public $nama;
+    public $nim;
+    public $jurusan;
+  ?>
+  ```
+  <h3>b) Buat metode tampilkanData() dalam class Mahasiswa</h3>
+  Methode tampilData(), digunakan untuk menampilkan Data Mahasiwa
+  
+  ```php
+  <?php
+      public function tampilkanData()
+    {
+        return "Nama: $this->nama, NIM: $this->nim, Jurusan: $this->jurusan ";
+    }
+  ?>
+  ```
+  <h3>c) Instansiasi objek dari class Mahasiswa dan tampilkan data mahasiswa tersebut</h3>
+  
+  ```php
+  <?php
+  // Instansiasi Objek
+$mahasiswa1 = new Mahasiswa("Galih Fitria Fijar Rofiqoh", "230302060", "Komputer dan Bisnis <br>");
+echo "<b>Data Awal </b><br>";
+echo $mahasiswa1->tampilkanData() . "<br>";
+  ?>
+  ```
+  
 
 
 

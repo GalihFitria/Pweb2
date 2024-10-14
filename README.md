@@ -367,7 +367,143 @@ echo "<b>Data setelah diubah </b><br>";
 echo $mahasiswa1->tampilkanData();
 ?>
 ```
+<h2>3. Inheritance</h2>
+<h3>a) Buat class Pengguna dengan atribut nama dan metode getNama()</h3>
 
+```php
+<?php
+//Definisi Class
+class Pengguna
+{
+    protected $nama;
+
+    public function __construct($nama)
+    {
+        $this->nama = $nama;
+    }
+    public function getNama()
+    {
+        return $this->nama;
+    }
+?>
+```
+<h3>b) Buat class Dosen yang mewarisi class Pengguna dan tambahkan atribut
+mataKuliah</h3>
+
+```php
+<?php
+class Dosen extends Pengguna
+{
+    private $mataKuliah;
+
+    public function __construct($nama, $mataKuliah)
+    {
+        parent::__construct($nama);
+        $this->mataKuliah = $mataKuliah;
+    }
+
+    //Getter untuk MataKuliah
+    public function getmataKuliah()
+    {
+        return $this->mataKuliah;
+    }
+    //Method untuk menampilkan Data Dosen
+    public function tampilkanDosen()
+    {
+        return "Nama Dosen: $this->nama, Mata Kuliah: $this->mataKuliah<br>";
+    }
+?>
+```
+<h3>c) Instansiasi objek dari class Dosen dan tampilkan data dosen</h3>
+
+```php
+<?php
+// Instansiasi Objek
+$dosen1 = new Dosen("Fijar", "Basis Data");
+
+// Menampilkan Data Dosen
+echo "<br><b>Data Dosen </b><br>";
+echo $dosen1->tampilkanDosen();
+?>
+```
+<h2>4. Polymorphism</h2>
+<h3>a) Buat class Pengguna dengan metode aksesFitur()</h3>
+
+```php
+<?php
+
+?>
+```
+<h3>b) Implementasikan aksesFitur() dengan cara berbeda di class Dosen dan
+Mahasiswa</h3>
+<i>aksesFitur() pada Dosen</i>
+
+```php
+<?php
+public function aksesFitur()
+    {
+        return "Dapat mengelola Mata Kuliah dan Penilaian";
+    }
+?>
+```
+<i>aksesFitur() pada Mahasiswa</i>
+
+```php
+<?php
+public function aksesFitur()
+    {
+        return "Dapat melihat nilai";
+    }
+?>
+```
+
+<h3>c) Instansiasi objek dari class Dosen dan Mahasiswa, lalu panggil metode
+aksesFitur()</h3>
+
+```php
+<?php
+// Menampilkan Data Mahasiswa dan Dosen
+echo "<br><b>Data Mahasiswa </b><br>";
+echo $mahasiswa1->tampilkanData();
+echo $mahasiswa1->aksesFitur() . "<br>";
+
+echo "<br><b>Data Dosen </b><br>";
+echo $dosen1->tampilkanDosen();
+echo $dosen1->aksesFitur() . "<br>";
+
+?>
+```
+<h2>5. Abstraction</h2>
+<h3>a) Buat class abstrak Pengguna dengan metode abstrak aksesFitur()</h3>
+
+```php
+<?php
+//Definisi Class
+abstract class Pengguna
+{
+    protected $nama;
+
+    public function __construct($nama)
+    {
+        $this->nama = $nama;
+    }
+    abstract public function aksesFitur();
+?>
+```
+<h3>b) Implementasikan class Mahasiswa dan Dosen yang mengimplementasikan
+metode abstrak tersebut</h3>
+
+```php
+<?php
+?>
+```
+<h3>c) Demonstrasikan dengan memanggil metode aksesFitur() dari objek yang
+diinstansiasi</h3>
+
+```php
+<?php
+?>
+```
 
 
 

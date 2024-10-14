@@ -56,6 +56,7 @@ Class Dosen memiliki Atribut dan Method sebagai berikut:
 <h2>Ouput Class Dosen: </h2>
 <img src='https://github.com/user-attachments/assets/3541d6c6-765b-46a9-a329-947df338b0cd'>
 
+# Jobsheet2
 
 
 

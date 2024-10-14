@@ -1,5 +1,5 @@
 # Praktikum Web 2 - Jobsheet1
-## <i>OOP (Objeck Oriented Programming)</i>
+## <i>OOP (Object Oriented Programming)</i>
 OOP (Object-Oriented Programming) atau Pemrograman Berorientasi Objek adalah sebuah paradigma pemrograman yang berfokus pada penggunaan objek dalam mengorganisir kode. OOP menggabungkan data dan perilaku (fungsi atau metode) ke dalam entitas yang disebut objek. Objek-objek ini didasarkan pada kelas, yang merupakan blueprint (cetak biru) untuk menciptakan objek.
 <h2>Implementasi Kelas</h2>
 <h3>A. Instruksi Kerja</h3>
@@ -53,7 +53,7 @@ Class Dosen memiliki Atribut dan Method sebagai berikut:
 ![instansiasi deosen](https://github.com/user-attachments/assets/f80e4beb-815b-470a-9f03-e5fd588c4764) <br>
 
 <h2>Ouput Class Dosen: </h2>
-![Screenshot 2024-10-14 110217](https://github.com/user-attachments/assets/3541d6c6-765b-46a9-a329-947df338b0cd)
+<img src='https://github.com/user-attachments/assets/3541d6c6-765b-46a9-a329-947df338b0cd'>
 
 
 

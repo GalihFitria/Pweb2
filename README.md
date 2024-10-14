@@ -298,7 +298,76 @@ echo "<b>Data Awal </b><br>";
 echo $mahasiswa1->tampilkanData() . "<br>";
   ?>
   ```
-  
+<h2>2. Encapsulation</h2>
+<h3>a) Ubah atribut dalam class Mahasiswa menjadi private</h3>
+
+```php
+<?php
+//Definisi Kelas
+class Mahasiswa
+{
+    //Atribut
+    private $nama;
+    private $nim;
+    private $jurusan;
+?>
+```
+
+<h3>b) Buat metode getter dan setter untuk atribut nama, nim, dan jurusan</h3>
+
+```php
+<?php
+   // Metode getter dan setter atribut Nama
+    public function getNama()
+    {
+        return $this->nama;
+    }
+    public function setNama($nama)
+    {
+        $this->nama = $nama;
+    }
+
+    // Metode getter dan setter atribut NIM
+    public function getNim()
+    {
+        return $this->nim;
+    }
+    public function setNim($nim)
+    {
+        $this->nim = $nim;
+    }
+
+    // Metode getter dan setter atribut Jurusan
+    public function getJurusan()
+    {
+        return $this->jurusan;
+    }
+    public function setJurusan($jurusan)
+    {
+        $this->jurusan = $jurusan;
+    }
+?>
+```
+<h3>c) Demonstrasikan akses ke atribut menggunakan metode getter dan setter</h3>
+
+```php
+<?php
+// Menggunakan getter untuk mengakses atribut
+echo "Nama: " . $mahasiswa1->getNama() . "<br>";
+echo "NIM: " . $mahasiswa1->getNim() . "<br>";
+echo "Jurusan: " . $mahasiswa1->getJurusan() . "<br>";
+
+// Menggunakan setter untuk mengubah nilai atribut
+$mahasiswa1->setNama("Fijar Nur Azizah");
+$mahasiswa1->setNim("230302061");
+$mahasiswa1->setJurusan("Teknik Informatika <br>");
+
+// Menampilkan data setelah diubah
+echo "<b>Data setelah diubah </b><br>";
+echo $mahasiswa1->tampilkanData();
+?>
+```
+
 
 
 

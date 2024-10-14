@@ -1,63 +1,160 @@
-# Praktikum Web 2 
-### <i>OOP (Object Oriented Programming)</i>
-OOP (Object-Oriented Programming) atau Pemrograman Berorientasi Objek adalah sebuah paradigma pemrograman yang berfokus pada penggunaan objek dalam mengorganisir kode. OOP menggabungkan data dan perilaku (fungsi atau metode) ke dalam entitas yang disebut objek. Objek-objek ini didasarkan pada kelas, yang merupakan blueprint (cetak biru) untuk menciptakan objek.
-### <i>Deskripsi Proyek</i>
-# Jobsheet1
-<h2>Implementasi Kelas</h2>
+# Pengenalan OOP dalam PHP
+<h2><i>OOP (Object Oriented Programming)</i></h2> 
+Object-Oriented Programming (OOP) adalah paradigma pemrograman yang berfokus pada konsep objek. Dalam OOP, konsep dasar seperti class dan object
+digunakan untuk memodelkan masalah dunia nyata ke dalam kode program. Prinsip-prinsip dasar OOP termasuk Encapsulation, Inheritance, Polymorphism, dan
+Abstraction yang memungkinkan kode lebih modular, terstruktur, dan mudah dipelihara.
+
+<h2><i>Kelas (Class)</i></h2>
+
+- Struktur atau blueprint yang mendefinisikan atribut dan metode yang dimiliki
+oleh objek.
+- Atribut atau properties adalah variabel yang menyimpan data untuk objek.
+- Metode adalah fungsi yang ditentukan dalam kelas yang dapat dipanggil oleh
+objek.
+
+<h2><i>Objek (Object)</i></h2>
+
+- Instansiasi dari kelas.
+- Memiliki akses ke atribut dan metode yang didefinisikan dalam kelas.
+
+<h2><i>Atribut dan Metode</i></h2>
+
+- Atribut: Menyimpan data atau keadaan dari objek.
+- Metode: Operasi atau fungsi yang dilakukan oleh objek.
+-  Aksesibilitas
+  1. Public: Dapat diakses dari mana saja.
+  2. Private: Hanya dapat diakses dalam kelas itu sendiri.
+  3. Protected: Dapat diakses oleh kelas itu sendiri dan kelas turunan.
+     
+<h2><i>Prinsip dalam OOP</i></h2>
+<h3>1. Encapsulasi</h3>
+Menyembunyikan detail implementasi dan hanya memberikan akses melalui metode tertentu.
+<h3>2. Inheritance</h3>
+Kelas dapat mewarisi properti dan metode dari kelas lain.
+<h3>3. Polymorphism</h3>
+Metode yang sama dapat memiliki implementasi berbeda dalam class yang berbeda.
+<h3>4. Abstraction</h3>
+Menyembunyikan detail implementasi dan hanya menampilkan fungsi penting.
+
+
+# Jobsheet 1 : Menggunakan Konsep Kelas dan Objek dalam PHP
 <h3>A. Instruksi Kerja</h3>
 <h4><i>Class Mahasiswa</i></h4>
-Class Mahasiswa memiliki Atribut dan Method sebagai berikut:
 
-- <i><b>Atribut pada Class Mahasiswa memiliki access modifier Public:</b></i>
-1. $nama : Nama Mahasiswa
-2. $nim : Nomor Induk Mahasiswa
-3. $jurusan : Jurusan Mahasiswa
-
-![atributttttt](https://github.com/user-attachments/assets/a0598610-4d0a-42d1-8835-a25bc48dc2e6) <br>
-
-- <i><b>Method:</b></i>
+- <i><h3>Atribut </h3></i>
+1. nama : Nama Mahasiswa
+2. nim : Nomor Induk Mahasiswa
+3. jurusan : Jurusan Mahasiswa <br>
+   Modifier akses **public** memungkinkan atribut atau metode dapat diakses dari mana saja.<br> Atribut sendiri berfungsi untuk menyimpan data atau status dari suatu objek.
+```php
+<?php
+    public $nama;
+    public $nim;
+    public $jurusan;
+?>
+```
+- <i><h3>Method </h3></i>
 1. Method Construct, digunakan untuk menginisialisasi atribut yang berisikan nama, nim dan jurusan untuk untuk mengatur nilai awal pada saat dibuat yang ada pada Class Mahasiswa
-   ![construc](https://github.com/user-attachments/assets/389ae0f3-f299-40c4-9227-b4abe441853b) <br>
-
+  ```php
+<?php
+    // Constructor untuk menginisialisasi atribut
+    public function __construct($nama, $nim, $jurusan)
+    {
+        $this->nama = $nama;
+        $this->nim = $nim;
+        $this->jurusan = $jurusan;
+    }
+?>
+```
 2. Methode tampilData(), digunakan untuk menampilkan Data Mahasiwa
-   ![tampilData](https://github.com/user-attachments/assets/ce527731-2775-4e5c-bde7-e85280019912) <br>
+  ```php
+<?php
+    // Metode untuk Menampilkan Data Mahasiswa
+    public function tampilData()
+    {
+        return "Halo perkenalkan, nama saya $this->nama dengan NIM $this->nim dari Jurusan $this->jurusan<br>";
+    }
+?>
+```
 3. Method updateJurusan, digunakan untuk memungkinkan perubahan pada atribut Jurusan
-   ![jurusan](https://github.com/user-attachments/assets/12b67d8f-e89c-4061-b658-c924394ad460) <br>
+  ```php
+<?php
+// Metode untuk mengubah Jurusan
+    public function updateJurusan($jurusanBaru)
+    {
+        $this->jurusan = $jurusanBaru;
+    }
+?>
+```
 4. Method setNIM, digunakan untuk mengubah nilai atribut Nim
-   ![nim](https://github.com/user-attachments/assets/8b291329-1d17-4503-9eb9-12f28b50f649)
-
-- <i><b>Instansiasi Objek Class Mahasiswa: </b></i>
-![instansiasi maha](https://github.com/user-attachments/assets/858bade4-b8a1-4d79-bfbf-2572ffd37101) 
-
-<h2>Output Class Mahasiswa: </h2>
+```php
+<?php
+    //Metode untuk mengubah NIM menggunakan setter
+    public function setNIM($nimBaru)
+    {
+        $this->nim = $nimBaru;
+    }
+?>
+```
+- <i><h3>Instansiasi Objek Class Mahasiswa </h3></i>
+```php
+<?php
+// Membuat atau Instansiasi Objek Mahasiswa dan menampilkan data awal
+$mahasiswa1 = new Mahasiswa("Galih Fitria Fijar Rofiqoh", "230302061", "Komputer dan Bisnis <br>");
+echo $mahasiswa1->tampilData();
+?>
+```
+<h3>Output Class Mahasiswa: </h3>
 <img src='https://github.com/user-attachments/assets/895686ec-244e-4d92-9390-172d361c7ec2'>
 
-
-<h3>B.Tugas</h3>
+<h3>B. Tugas</h3>
 <h4><i>Class Dosen</i></h4>
-Class Dosen memiliki Atribut dan Method sebagai berikut:
 
-- <i><b>Atribut pada Class Mahasiswa memiliki access modifier Public:</b></i>
-
-1. $nama : Nama Dosen
-2. $nip : Nomor Induk Pegawai
-3. $mataKuliah : Mata Kuliah yang diampu
-   ![dosen](https://github.com/user-attachments/assets/428293f0-7144-4931-aad6-bc2d849c7132) <br>
-
-- <i><b>Method:</b></i>
-1. Method Construct, digunakan untuk menginisialisasi atribut yang berisikan nama, nip dan mataKuliah untuk untuk mengatur nilai awal pada saat dibuat yang ada pada Class Dosen
-![konstruk](https://github.com/user-attachments/assets/ae793008-a53c-4c0e-8d76-9353bd885ba1) <br>
-
+- <i><h3>Atribut </h3></i>
+1. nama : Nama Dosen
+2. nip : Nomor Induk Pegawai
+3. mataKuliah : Mata Kuliah yang diampu
+```php
+<?php
+    //Atribut atau Properties
+    public $nama;
+    public $nip;
+    public $mataKuliah;
+?>
+```
+- <i><h3>Method </h3></i>
+1. Method Construct, digunakan untuk menginisialisasi atribut yang berisikan nama, nip dan mataKuliah untuk untuk mengatur nilai awal pada saat dibuat yang ada pada Class Dosen.
+```php
+    //Constructor untuk menginisialisasi atribut
+    public function __construct($nama, $nip, $mataKuliah)
+    {
+        $this->nama = $nama;
+        $this->nip = $nip;
+        $this->mataKuliah = $mataKuliah;
+    }
+?>
+```
 2. Methode tampilkanDosen(), digunakan untuk Informasi Dosen
-   ![tampildosen](https://github.com/user-attachments/assets/39618b9b-b5ca-4167-b0f4-e055e6e04f39) <br>
-
-- <i><b>Instansiasi Objek Class Mahasiswa: </b></i>
-![instansiasi deosen](https://github.com/user-attachments/assets/f80e4beb-815b-470a-9f03-e5fd588c4764) <br>
-
-<h2>Ouput Class Dosen: </h2>
+```php
+    //Metode untuk menampilkan Data Dosen
+    public function tampilkanDosen()
+    {
+        return "Dosen bernama $this->nama dengan NIP $this->nip mengampu Mata Kuliah $this->mataKuliah.<br>";
+    }
+?>
+```
+- <i><h3>Instansiasi Objek Class Dosen </h3></i>
+```php
+<?php
+//Instansiasi Objek
+$dosen1 = new Dosen("Galih Fitria Fijar Rofiqoh", "2303020619748249", "Desain Interaktif Pengguna");
+echo $dosen1->tampilkanDosen();
+?>
+```
+<h3>Ouput Class Dosen: </h3>
 <img src='https://github.com/user-attachments/assets/3541d6c6-765b-46a9-a329-947df338b0cd'>
 
-# Jobsheet2
+# Jobsheet 2 : Implementasi Prinsip OOP dalam PHP
 
 
 

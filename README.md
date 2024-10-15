@@ -1197,4 +1197,57 @@ echo $offlineCourse->getCourseDetails();
 
 
 <h2>Tugas</h2>
+<h3>1.) Implementasikan kelas Person sebagai induk dari Dosen dan Mahasiswa</h3>
 
+```php
+<?php
+class Person
+{
+    protected $nama;
+
+    public function __construct($nama)
+    {
+        $this->nama = $nama;
+    }
+
+    public function getName()
+    {
+        return $this->nama;
+    }
+}
+
+class Dosen extends Person
+{
+    private $nidn;
+
+    public function __construct($nama, $nidn)
+    {
+        parent::__construct($nama);
+        $this->nidn = $nidn;
+    }
+
+    // Getter untuk NIDN
+    public function getnidn()
+    {
+        return $this->nidn;
+    }
+}
+
+class Mahasiswa extends Person
+{
+    private $nim;
+
+    public function __construct($nama, $nim)
+    {
+        parent::__construct($nama);
+        $this->nim = $nim;
+    }
+
+    // Getter untuk NIM
+    public function getnim()
+    {
+        return $this->nim;
+    }
+}
+?>
+```

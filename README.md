@@ -1251,3 +1251,235 @@ class Mahasiswa extends Person
 }
 ?>
 ```
+<h3>2.) Gunakan konsep Inheritance untuk membuat hierarki kelas yang memungkinkan
+Dosen dan Mahasiswa memiliki atribut dan metode yang sesuai dengan perannya</h3>
+
+Class Dosen
+
+```php
+<?php
+class Dosen extends Person
+{
+    public $nidn;
+
+    public function __construct($nama, $nidn)
+    {
+        parent::__construct($nama);
+        $this->nidn = $nidn;
+    }
+?>
+```
+
+Class Mahasiswa
+
+```php
+<?php
+class Mahasiswa extends Person
+{
+    public $nim;
+
+    public function __construct($nama, $nim)
+    {
+        parent::__construct($nama);
+        $this->nim = $nim;
+    }
+?>
+```
+
+<h3>3.) Terapkan Polymorphism dengan membuat metode getRole() di kelas Person dan
+override metode ini di kelas Dosen dan Mahasiswa untuk menampilkan peran yang
+berbeda</h3>
+
+metode getRole() di kelas Person
+
+```php
+<?php
+    public function getRole()
+    {
+        return "Ini adalah orang.";
+    }
+?>
+```
+
+override metode getRole() di kelas Dosen
+
+```php
+<?php
+   public function getRole()
+    {
+        return "Dosen bernama " . $this->nama . " dengan NIDN " . $this->nidn;
+    }
+?>
+```
+
+override metode getRole() di kelas Mahasiswa
+
+```php
+<?php
+    public function getRole()
+    {
+        return "Mahasiswa bernama " . $this->nama . " dengan NIM " . $this->nim;
+    }
+?>
+```
+<h3>4.) Gunakan Encapsulation untuk melindungi atribut nidn di kelas Dosen dan nim di kelas Mahasiswa</h3>
+
+Encapsulation untuk melindungi atribut nidn di kelas Dosen
+
+```php
+<?php
+class Dosen extends Person
+{
+    private $nidn;
+}
+?>
+```
+
+Encapsulation untuk melindungi atribut nidn di kelas Mahasiswa
+
+```php
+<?php
+class Mahasiswa extends Person
+{
+    private $nim;
+}
+?>
+```
+<h3>Script (tugas.php)</h3>
+
+```php
+<?php
+class Person
+{
+    protected $nama;
+
+    public function __construct($nama)
+    {
+        $this->nama = $nama;
+    }
+
+    public function getName()
+    {
+        return $this->nama;
+    }
+
+    // Metode untuk mendapatkan peran
+    public function getRole()
+    {
+        return "Ini adalah orang.";
+    }
+}
+
+class Dosen extends Person
+{
+    private $nidn;
+
+    public function __construct($nama, $nidn)
+    {
+        parent::__construct($nama);
+        $this->nidn = $nidn;
+    }
+
+    // Getter untuk NIDN
+    public function getnidn()
+    {
+        return $this->nidn;
+    }
+
+    // Override getRole untuk Dosen
+    public function getRole()
+    {
+        return "Dosen bernama " . $this->nama . " dengan NIDN " . $this->nidn;
+    }
+}
+
+class Mahasiswa extends Person
+{
+    private $nim;
+
+    public function __construct($nama, $nim)
+    {
+        parent::__construct($nama);
+        $this->nim = $nim;
+    }
+
+    // Getter untuk NIM
+    public function getnim()
+    {
+        return $this->nim;
+    }
+
+    // Override getRole untuk Mahasiswa
+    public function getRole()
+    {
+        return "Mahasiswa bernama " . $this->nama . " dengan NIM " . $this->nim;
+    }
+}
+
+// Instansiasi objek
+$dosen = new Dosen("Galih Fitria", "234568996");
+$mahasiswa = new Mahasiswa("Andin Ardelina", "230102059");
+
+// Menampilkan informasi Dosen
+echo "Nama: " . $dosen->getName();
+echo "<br>";
+echo "NIDN: " . $dosen->getnidn();
+echo "<br>";
+echo $dosen->getRole(); // Menampilkan peran Dosen
+echo "<br><br>";
+
+// Menampilkan informasi Mahasiswa
+echo "Nama: " . $mahasiswa->getName();
+echo "<br>";
+echo "NIM: " . $mahasiswa->getnim();
+echo "<br>";
+echo $mahasiswa->getRole(); // Menampilkan peran Mahasiswa
+echo "<br>";
+echo "<hr>";
+?>
+```
+
+<h3>Output point 1-4 </h3>
+<img src ='https://github.com/user-attachments/assets/101ba96c-1a9a-46fa-b474-d10a3c5bd2df'>
+
+<h3>5.) Buat kelas abstrak Jurnal dan implementasikan konsep Abstraction dengan
+membuat kelas turunan JurnalDosen dan JurnalMahasiswa yang masing-masing
+memiliki cara tersendiri untuk mengelola pengajuan jurnal</h3>
+
+```php
+<?php
+abstract class Jurnal
+{
+    abstract public function ajukanJurnal();
+}
+
+class JurnalDosen extends Jurnal
+{
+    public function ajukanJurnal()
+    {
+        return "Pengajuan Jurnal ini dilakukan oleh Dosen.";
+    }
+} // Menutup class JurnalDosen
+
+class JurnalMahasiswa extends Jurnal
+{
+    public function ajukanJurnal()
+    {
+        return "Pengajuan Jurnal dilakukan oleh Mahasiswa.";
+    }
+} // Menutup class JurnalMahasiswa
+
+$dosenJurnal = new JurnalDosen();
+echo $dosenJurnal->ajukanJurnal();
+echo "<br>";
+
+$mahasiswaJurnal = new JurnalMahasiswa(); // Memperbaiki kesalahan penamaan variabel
+echo $mahasiswaJurnal->ajukanJurnal(); // Memperbaiki kesalahan penamaan variabel
+?>
+```
+
+<h3>Output point 5 </h3>
+<img src ='https://github.com/user-attachments/assets/9a42f38d-c4aa-43ec-8397-f53e1e663352'>
+
+
+

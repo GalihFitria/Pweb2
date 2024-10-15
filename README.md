@@ -1,19 +1,7 @@
-# Praktikum Web 2
-     
-<h2><i>Prinsip dalam OOP</i></h2>
-
-- <b>Encapsulasi: </b>
-Menyembunyikan detail implementasi dan hanya memberikan akses melalui metode tertentu.
-- <b>Inheritance: </b>
-Kelas dapat mewarisi properti dan metode dari kelas lain.
-- <b>Polymorphism: </b> 
-Metode yang sama dapat memiliki implementasi berbeda dalam class yang berbeda.
-- <b>Abstraction: </b>
-Menyembunyikan detail implementasi dan hanya menampilkan fungsi penting.
+# PRAKTIKUM WEB 2
 
 # PERTEMUAN 1-2
 # JOBSHEET 1 : Menggunakan Konsep Kelas dan Objek dalam PHP
-<h2><i>OOP (Object Oriented Programming)</i></h2> 
 Object-Oriented Programming (OOP) adalah paradigma pemrograman yang berfokus pada konsep objek. Dalam OOP, konsep dasar seperti class dan object
 digunakan untuk memodelkan masalah dunia nyata ke dalam kode program. Prinsip-prinsip dasar OOP termasuk Encapsulation, Inheritance, Polymorphism, dan
 Abstraction yang memungkinkan kode lebih modular, terstruktur, dan mudah dipelihara.
@@ -263,6 +251,19 @@ echo $dosen1->tampilkanDosen();
 
 # PERTEMUAN 3-4
 # JOBSHEET 2 : Implementasi Prinsip OOP dalam PHP
+Object-Oriented Programming (OOP) adalah paradigma pemrograman yang
+berfokus pada konsep objek. Dalam OOP, konsep dasar seperti class dan object
+digunakan untuk memodelkan masalah dunia nyata ke dalam kode program. Prinsip-
+prinsip dasar OOP termasuk Encapsulation, Inheritance, Polymorphism, dan
+Abstraction yang memungkinkan kode lebih modular, terstruktur, dan mudah
+dipelihara.
+
+<h2><i>Prinsip OOP dalam PHP</i></h2>
+- Encapsulation: Menyembunyikan detail implementasi dan hanya memberikan akses melalui metode tertentu.
+- Inheritance: Kelas dapat mewarisi properti dan metode dari kelas lain.
+- Polymorphism: Metode yang sama dapat memiliki implementasi berbeda dalam class yang berbeda.
+- Abstraction: Menyembunyikan detail implementasi dan hanya menampilkan fungsi penting.
+
 <h2>1. Membuat Class dan Object</h2>
 <h3>a) Buat class Mahasiswa yang memiliki atribut nama, nim, dan jurusan</h3>
 
@@ -300,6 +301,7 @@ echo $mahasiswa1->tampilkanData() . "<br>";
   ?>
   ```
 <h2>2. Encapsulation</h2>
+
 <h3>a) Ubah atribut dalam class Mahasiswa menjadi private</h3>
 
 ```php
@@ -369,6 +371,7 @@ echo $mahasiswa1->tampilkanData();
 ?>
 ```
 <h2>3. Inheritance</h2>
+
 <h3>a) Buat class Pengguna dengan atribut nama dan metode getNama()</h3>
 
 ```php
@@ -428,6 +431,7 @@ echo $dosen1->tampilkanDosen();
 ?>
 ```
 <h2>4. Polymorphism</h2>
+
 <h3>a) Buat class Pengguna dengan metode aksesFitur()</h3>
 
 ```php
@@ -475,6 +479,7 @@ echo $dosen1->aksesFitur() . "<br>";
 ?>
 ```
 <h2>5. Abstraction</h2>
+
 <h3>a) Buat class abstrak Pengguna dengan metode abstrak aksesFitur()</h3>
 
 ```php
@@ -505,6 +510,14 @@ diinstansiasi</h3>
 <?php
 ?>
 ```
+
+# PERTEMUAN 5-6
+# JOBSHEET 3 : Menerapkan Konsep Inheritance, Polymorphism, Encapsulation, dan Abstraction dalam PHP
+Object-Oriented Programming (OOP) dalam PHP memungkinkan pengembangan
+perangkat lunak yang lebih terstruktur dan modular. Konsep-konsep seperti Inheritance,
+Polymorphism, Encapsulation, dan Abstraction adalah pilar penting yang membuat
+OOP efisien. Dengan menguasai konsep-konsep ini, pengembang dapat membuat kode
+yang lebih fleksibel, dapat digunakan kembali, dan mudah dipelihara.
 
 
 

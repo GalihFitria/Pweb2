@@ -1,4 +1,18 @@
-# Pengenalan OOP dalam PHP
+# Praktikum Web 2
+     
+<h2><i>Prinsip dalam OOP</i></h2>
+
+- <b>Encapsulasi: </b>
+Menyembunyikan detail implementasi dan hanya memberikan akses melalui metode tertentu.
+- <b>Inheritance: </b>
+Kelas dapat mewarisi properti dan metode dari kelas lain.
+- <b>Polymorphism: </b> 
+Metode yang sama dapat memiliki implementasi berbeda dalam class yang berbeda.
+- <b>Abstraction: </b>
+Menyembunyikan detail implementasi dan hanya menampilkan fungsi penting.
+
+# PERTEMUAN 1-2
+# JOBSHEET 1 : Menggunakan Konsep Kelas dan Objek dalam PHP
 <h2><i>OOP (Object Oriented Programming)</i></h2> 
 Object-Oriented Programming (OOP) adalah paradigma pemrograman yang berfokus pada konsep objek. Dalam OOP, konsep dasar seperti class dan object
 digunakan untuk memodelkan masalah dunia nyata ke dalam kode program. Prinsip-prinsip dasar OOP termasuk Encapsulation, Inheritance, Polymorphism, dan
@@ -26,19 +40,6 @@ objek.
   2. Private: Hanya dapat diakses dalam kelas itu sendiri.
   3. Protected: Dapat diakses oleh kelas itu sendiri dan kelas turunan.
      
-<h2><i>Prinsip dalam OOP</i></h2>
-
-- <b>Encapsulasi: </b>
-Menyembunyikan detail implementasi dan hanya memberikan akses melalui metode tertentu.
-- <b>Inheritance: </b>
-Kelas dapat mewarisi properti dan metode dari kelas lain.
-- <b>Polymorphism: </b> 
-Metode yang sama dapat memiliki implementasi berbeda dalam class yang berbeda.
-- <b>Abstraction: </b>
-Menyembunyikan detail implementasi dan hanya menampilkan fungsi penting.
-
-# PERTEMUAN 1-2
-# JOBSHEET 1 : Menggunakan Konsep Kelas dan Objek dalam PHP
 <h2>Class Mahasiswa - Instruksi kerja</h2>
 <h3>a) Buat class Mahasiswa yang memiliki atribut nama, nim, dan jurusan</h3>
 

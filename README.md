@@ -706,6 +706,7 @@ echo $dosen1->aksesFitur() . "<br>";
 ```
 
 <h3>Ouput: </h3>
+<img src = 'https://github.com/user-attachments/assets/dbec2831-41c6-48b7-b462-abf49fc2c314'>
 
 # PERTEMUAN 5-6
 # JOBSHEET 3 : Menerapkan Konsep Inheritance, Polymorphism, Encapsulation, dan Abstraction dalam PHP

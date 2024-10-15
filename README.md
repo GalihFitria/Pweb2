@@ -117,7 +117,7 @@ $mahasiswa1 = new Mahasiswa("Galih Fitria Fijar Rofiqoh", "230302061", "Komputer
 echo $mahasiswa1->tampilData();
 ?>
 ```
-<h3>Script: </h3>
+<h3>Script (Instruksi_kerja.php): </h3>
 
 ```php
 <?php
@@ -224,7 +224,7 @@ $dosen1 = new Dosen("Galih Fitria Fijar Rofiqoh", "2303020619748249", "Desain In
 echo $dosen1->tampilkanDosen();
 ?>
 ```
-<h3>Script: </h3>
+<h3>Script (Tugas.php): </h3>
 
 ```php
 <?php

@@ -259,9 +259,13 @@ Abstraction yang memungkinkan kode lebih modular, terstruktur, dan mudah
 dipelihara.
 
 <h2><i>Prinsip OOP dalam PHP</i></h2>
+
 - Encapsulation: Menyembunyikan detail implementasi dan hanya memberikan akses melalui metode tertentu.
+
 - Inheritance: Kelas dapat mewarisi properti dan metode dari kelas lain.
+  
 - Polymorphism: Metode yang sama dapat memiliki implementasi berbeda dalam class yang berbeda.
+  
 - Abstraction: Menyembunyikan detail implementasi dan hanya menampilkan fungsi penting.
 
 <h2>1. Membuat Class dan Object</h2>
@@ -436,7 +440,8 @@ echo $dosen1->tampilkanDosen();
 
 ```php
 <?php
-
+public function aksesFitur()
+return "Dapat mengelola Mata Kuliah dan Penilaian";
 ?>
 ```
 <h3>b) Implementasikan aksesFitur() dengan cara berbeda di class Dosen dan
@@ -499,17 +504,208 @@ abstract class Pengguna
 <h3>b) Implementasikan class Mahasiswa dan Dosen yang mengimplementasikan
 metode abstrak tersebut</h3>
 
+Menghapus isi abstract function aksesFitur()
 ```php
 <?php
+ abstract public function aksesFitur();
 ?>
 ```
+
+Override metode aksesFitur() di class Dosen
+
+```php
+<?php
+public function aksesFitur()
+    {
+        return "Dapat mengelola Mata Kuliah dan Penilaian";
+    }
+?>
+```
+Override metode aksesFitur() di class Mahasiswa
+
+```php
+<?php
+ public function aksesFitur()
+    {
+        return "Dapat melihat nilai";
+    }
+?>
+```
+
 <h3>c) Demonstrasikan dengan memanggil metode aksesFitur() dari objek yang
 diinstansiasi</h3>
 
 ```php
 <?php
+$dosen1 = new Dosen("Fijar", "Basis Data");
+
+// Menampilkan Data Dosen
+echo "<br><b>Data Dosen </b><br>";
+echo $dosen1->tampilkanDosen();
+
+// Menampilkan Data Mahasiswa dan Dosen
+echo "<br><b>Data Mahasiswa </b><br>";
+echo $mahasiswa1->tampilkanData();
+echo $mahasiswa1->aksesFitur() . "<br>";
+
+echo "<br><b>Data Dosen </b><br>";
+echo $dosen1->tampilkanDosen();
+echo $dosen1->aksesFitur() . "<br>";
 ?>
 ```
+
+<h3>Script (instruksi.php): </h3>
+
+```php
+<?php
+<?php
+// class mahasiswa mengambil sifat dari class pengguna
+class Mahasiswa extends Pengguna
+{
+    // Atribut atau Properties
+    private $nim;
+    private $jurusan;
+
+    // Constructor
+    public function __construct($nama, $nim, $jurusan)
+    {
+        parent::__construct($nama);
+        $this->nim = $nim;
+        $this->jurusan = $jurusan;
+    }
+
+    // Override metode aksesFitur
+    public function aksesFitur()
+    {
+        return "Dapat melihat nilai";
+    }
+
+    // Metode atau Function
+    public function tampilkanData()
+    {
+        return "Nama: $this->nama, NIM: $this->nim, Jurusan: $this->jurusan ";
+    }
+
+    // Metode getter dan setter atribut Nama
+    public function getNama()
+    {
+        return $this->nama;
+    }
+    public function setNama($nama)
+    {
+        $this->nama = $nama;
+    }
+
+    // Metode getter dan setter atribut NIM
+    public function getNim()
+    {
+        return $this->nim;
+    }
+    public function setNim($nim)
+    {
+        $this->nim = $nim;
+    }
+
+    // Metode getter dan setter atribut Jurusan
+    public function getJurusan()
+    {
+        return $this->jurusan;
+    }
+    public function setJurusan($jurusan)
+    {
+        $this->jurusan = $jurusan;
+    }
+}
+
+// Instansiasi Objek
+$mahasiswa1 = new Mahasiswa("Galih Fitria Fijar Rofiqoh", "230302060", "Komputer dan Bisnis <br>");
+echo "<b>Data Awal </b><br>";
+echo $mahasiswa1->tampilkanData() . "<br>";
+
+// Menggunakan getter untuk mengakses atribut
+// echo "<b>Data telah di Encapsulasi: </b><br>";
+echo "Nama: " . $mahasiswa1->getNama() . "<br>";
+echo "NIM: " . $mahasiswa1->getNim() . "<br>";
+echo "Jurusan: " . $mahasiswa1->getJurusan() . "<br>";
+
+// Menggunakan setter untuk mengubah nilai atribut
+$mahasiswa1->setNama("Fijar Nur Azizah");
+$mahasiswa1->setNim("230302061");
+$mahasiswa1->setJurusan("Teknik Informatika <br>");
+
+
+// Menampilkan data setelah diubah
+echo "<b>Data setelah diubah </b><br>";
+echo $mahasiswa1->tampilkanData();
+
+//Definisi Class
+abstract class Pengguna
+{
+    // Atribut atau Properties
+    protected $nama;
+
+    public function __construct($nama)
+    {
+        $this->nama = $nama;
+    }
+
+    // Metode aksesFitur (akan dioverride di child class)
+    abstract public function aksesFitur();
+
+    //Getter untuk Nama
+    public function getNama()
+    {
+        return $this->nama;
+    }
+}
+
+class Dosen extends Pengguna
+{
+    private $mataKuliah;
+
+    public function __construct($nama, $mataKuliah)
+    {
+        parent::__construct($nama);
+        $this->mataKuliah = $mataKuliah;
+    }
+
+    // Override metode aksesFitur
+    public function aksesFitur()
+    {
+        return "Dapat mengelola Mata Kuliah dan Penilaian";
+    }
+
+    //Getter untuk MataKuliah
+    public function getmataKuliah()
+    {
+        return $this->mataKuliah;
+    }
+    //Method untuk menampilkan Data Dosen
+    public function tampilkanDosen()
+    {
+        return "Nama Dosen: $this->nama, Mata Kuliah: $this->mataKuliah<br>";
+    }
+}
+// Instansiasi Objek
+$dosen1 = new Dosen("Fijar", "Basis Data");
+
+// Menampilkan Data Dosen
+echo "<br><b>Data Dosen </b><br>";
+echo $dosen1->tampilkanDosen();
+
+// Menampilkan Data Mahasiswa dan Dosen
+echo "<br><b>Data Mahasiswa </b><br>";
+echo $mahasiswa1->tampilkanData();
+echo $mahasiswa1->aksesFitur() . "<br>";
+
+echo "<br><b>Data Dosen </b><br>";
+echo $dosen1->tampilkanDosen();
+echo $dosen1->aksesFitur() . "<br>";
+
+?>
+```
+
+<h3>Ouput: </h3>
 
 # PERTEMUAN 5-6
 # JOBSHEET 3 : Menerapkan Konsep Inheritance, Polymorphism, Encapsulation, dan Abstraction dalam PHP
@@ -519,5 +715,486 @@ Polymorphism, Encapsulation, dan Abstraction adalah pilar penting yang membuat
 OOP efisien. Dengan menguasai konsep-konsep ini, pengembang dapat membuat kode
 yang lebih fleksibel, dapat digunakan kembali, dan mudah dipelihara.
 
+<h2><i>Instruksi kerja</i></h2>
+<h2>1. Inheritance (Pewarisan)</h2>
+Inheritance adalah konsep di mana sebuah kelas dapat mewarisi atribut dan
+metode dari kelas lain. Ini memungkinkan penggunaan kembali kode dan
+menciptakan hubungan hierarkis antara kelas.
 
+<h3>a) Buat kelas Person dengan atribut name dan metode getName() </h3>
+
+```php
+<?php
+class Person
+{
+    protected $nama;
+
+    public function __construct($nama)
+    {
+        $this->nama = $nama;
+    }
+
+    public function getName()
+    {
+        return $this->nama;
+    }
+}
+?>
+```
+
+<h3>b) Buat kelas Student yang mewarisi dari Person dan tambahkan atribut studentID
+serta metode getStudentID()</h3>
+
+```php
+<?php
+class Student extends Person
+{
+    private $studentID;
+
+    public function __construct($nama, $studentID)
+    {
+        parent::__construct($nama);
+        $this->studentID = $studentID;
+    }
+
+    //Getter untuk MataKuliah
+    public function getstudentID()
+    {
+        return $this->studentID;
+    }
+}
+?>
+```
+
+<h3>c) Intansiasi Objek</h3>
+
+```php
+<?php
+$student = new Student("Galih Fitria", "S123");
+
+echo "Nama: " . $student->getName();
+echo "<br>";
+echo "Student ID: " . $student->getStudentID();
+?>
+```
+
+<h3>Script (inheritance.php): </h3>
+
+```php
+<?php
+class Person
+{
+    protected $nama;
+
+    public function __construct($nama)
+    {
+        $this->nama = $nama;
+    }
+
+    public function getName()
+    {
+        return $this->nama;
+    }
+}
+
+class Student extends Person
+{
+    private $studentID;
+
+    public function __construct($nama, $studentID)
+    {
+        parent::__construct($nama);
+        $this->studentID = $studentID;
+    }
+
+    //Getter untuk MataKuliah
+    public function getstudentID()
+    {
+        return $this->studentID;
+    }
+}
+$student = new Student("Galih Fitria", "S123");
+
+echo "Nama: " . $student->getName();
+echo "<br>";
+echo "Student ID: " . $student->getStudentID();
+?>
+```
+<h3>Ouput Inheritance: </h3>
+<img src='https://github.com/user-attachments/assets/206548e4-2578-4564-aa7f-3bdee6115516'>
+
+<h2>2. Polymorphism</h2>
+Polymorphism memungkinkan satu metode untuk memiliki banyak bentuk,
+biasanya melalui metode overriding di kelas turunan. Dengan ini, objek dapat
+diperlakukan sebagai bentuk umum dan khusus sesuai kebutuhan.
+
+<h3>a) Buat kelas Teacher yang juga mewarisi dari Person dan tambahkan atribut
+teacherID</h3>
+
+```php
+class Teacher extends Person
+{
+    public $teacherID;
+
+    public function __construct($nama, $teacherID)
+    {
+        parent::__construct($nama);
+        $this->teacherID = $teacherID;
+    }
+?>
+```
+
+<h3>b) Override metode getName() di kelas Student dan Teacher untuk menampilkan
+format berbeda</h3>
+Override metode getName() di kelas Student
+
+```php
+<?php
+    // Override getName untuk format berbeda
+    public function getName()
+    {
+        return "Nama Siswa: " . $this->nama;
+    }
+?>
+```
+
+Override metode getName() di kelas Teacher
+
+```php
+    // Override getName untuk format berbeda
+    public function getName()
+    {
+        return "<br> Nama Guru: " . $this->nama;
+    }
+?>
+```
+<h3>c) Instansiasi Objek</h3>
+
+```php
+<?php
+$student = new Student("Galih Fitria Fijar", "230302060");
+$teacher = new Teacher("Andin Ardelina", "Matematika Distrik");
+
+echo $student->getName(); 
+echo $teacher->getName(); 
+?>
+```
+
+<h3>Script (polymorphism.php): </h3>
+
+```php
+<?php
+class Person
+{
+    protected $nama;
+
+    public function __construct($nama)
+    {
+        $this->nama = $nama;
+    }
+
+    public function getName()
+    {
+        return $this->nama;
+    }
+}
+
+class Student extends Person
+{
+    public $studentID;
+
+    public function __construct($nama, $studentID)
+    {
+        parent::__construct($nama);
+        $this->studentID = $studentID;
+    }
+
+    // Override getName untuk format berbeda
+    public function getName()
+    {
+        return "Nama Siswa: " . $this->nama;
+    }
+
+    //Getter untuk studentID
+    public function getstudentID()
+    {
+        return $this->studentID;
+    }
+}
+
+class Teacher extends Person
+{
+    public $teacherID;
+
+    public function __construct($nama, $teacherID)
+    {
+        parent::__construct($nama);
+        $this->teacherID = $teacherID;
+    }
+    // Override getName untuk format berbeda
+    public function getName()
+    {
+        return "<br> Nama Guru: " . $this->nama;
+    }
+
+}
+// Contoh penggunaan
+$student = new Student("Galih Fitria Fijar", "230302060");
+$teacher = new Teacher("Andin Ardelina", "Matematika Distrik");
+
+echo $student->getName(); 
+echo $teacher->getName(); 
+?>
+```
+
+<h3>Output Polymorphism: </h3>
+<img src = 'https://github.com/user-attachments/assets/7edefeb9-4179-4d2e-83d7-066b78bb7520'>
+
+
+<h2>3. Encapsulation</h2>
+Encapsulation menyembunyikan detail internal dari sebuah objek dan hanya
+membiarkan interaksi melalui metode publik yang tersedia, menjaga data internal
+tetap aman dari perubahan tak terduga.
+
+<h3>a) Ubah atribut name dan studentID dalam kelas Student menjadi private</h3>
+
+```php
+<?php
+   private $studentID;
+
+    public function __construct($nama, $studentID)
+    {
+        parent::__construct($nama);
+        $this->studentID = $studentID;
+    }
+?>
+```
+
+<h3>b) Tambahkan metode setter dan getter untuk mengakses dan mengubah nilai
+atribut name dan studentID </h3>
+
+```php
+<?php
+    // Getter untuk mengakses nilai Nama
+    public function getName()
+    {
+        return "Nama Siswa: " . $this->nama;
+    }
+    //setter untuk mengubah nilai Nama
+    public function setName($nama)
+    {
+        $this->nama = $nama;
+    }
+
+    //Getter untuk mengakses nilai studentID
+    public function getstudentID()
+    {
+        return $this->studentID;
+    }
+
+    //setter untuk mengubah nilai studentID
+    public function setstudentID($studentID)
+    {
+        $this->studentID = $studentID;
+    }
+}
+?>
+```
+
+<h3>c) Intansiasi Objek</h3>
+
+```php
+<?php
+$student = new Student("Galih Fitria Fijar", "230302060");
+
+echo $student->getName();   // Output: Nama Siswa: Galih Fitria Fijar
+echo "<br>";
+echo "Student ID: " . $student->getStudentID(); // Output: Student ID: 230302060
+echo "<br>";
+?>
+```
+<h3>Script (encapsulation.php)</h3>
+
+```php
+<?php
+<?php
+class Person
+{
+    protected $nama;
+
+    public function __construct($nama)
+    {
+        $this->nama = $nama;
+    }
+
+    //getter untuk mengakses nilai Nama
+    public function getName()
+    {
+        return $this->nama;
+    }
+}
+
+class Student extends Person
+{
+    private $studentID;
+
+    public function __construct($nama, $studentID)
+    {
+        parent::__construct($nama);
+        $this->studentID = $studentID;
+    }
+
+    // Getter untuk mengakses nilai Nama
+    public function getName()
+    {
+        return "Nama Siswa: " . $this->nama;
+    }
+    //setter untuk mengubah nilai Nama
+    public function setName($nama)
+    {
+        $this->nama = $nama;
+    }
+
+    //Getter untuk mengakses nilai studentID
+    public function getstudentID()
+    {
+        return $this->studentID;
+    }
+
+    //setter untuk mengubah nilai studentID
+    public function setstudentID($studentID)
+    {
+        $this->studentID = $studentID;
+    }
+}
+
+class Teacher extends Person
+{
+    public $teacherID;
+
+    public function __construct($nama, $teacherID)
+    {
+        parent::__construct($nama);
+        $this->teacherID = $teacherID;
+    }
+    // Override getName untuk format berbeda
+    public function getName()
+    {
+        return "<br> Nama Guru: " . $this->nama;
+    }
+}
+// Contoh penggunaan
+$student = new Student("Galih Fitria Fijar", "230302060");
+
+echo $student->getName();   // Output: Nama Siswa: Galih Fitria Fijar
+echo "<br>";
+echo "Student ID: " . $student->getStudentID(); // Output: Student ID: 230302060
+echo "<br>";
+?>
+```
+
+<h3>Ouput Encapsulation: </h3>
+<img src ='https://github.com/user-attachments/assets/9d118911-4e78-4101-905c-43eb51e40084'>
+
+
+<h2>4. Abstraction</h2>
+Abstraction adalah proses menyembunyikan detail implementasi internal dan
+hanya menampilkan fungsionalitas utama kepada pengguna. Ini biasanya dicapai
+dengan menggunakan kelas abstrak atau antarmuka
+
+<h3>a) Buat kelas abstrak Course dengan metode abstrak getCourseDetails()</h3>
+
+```php
+<?php
+// Kelas abstrak Course
+abstract class Course
+{
+    // Metode abstrak yang harus diimplementasikan oleh kelas turunan
+    abstract public function getCourseDetails();
+}
+?>
+```
+
+<h3>b) Buat kelas OnlineCourse dan OfflineCourse yang mengimplementasikan
+getCourseDetails() untuk memberikan detail yang berbeda</h3>
+
+```php
+<?php
+// Kelas OnlineCourse yang mengimplementasikan metode getCourseDetails()
+class OnlineCourse extends Course
+{
+    public function getCourseDetails()
+    {
+        return "Course ini diadakan secara Online";
+    }
+}
+
+// Kelas OfflineCourse yang mengimplementasikan metode getCourseDetails()
+class OfflineCourse extends Course
+{
+    public function getCourseDetails()
+    {
+        return "Course ini diadakan secara Offline";
+    }
+}
+
+?>
+```
+<h3>c) Instansiasi Objek</h3>
+
+```php
+<?php
+$onlineCourse = new OnlineCourse();
+$offlineCourse = new OfflineCourse();
+
+echo $onlineCourse->getCourseDetails();  
+echo "<br>";
+echo $offlineCourse->getCourseDetails(); 
+?>
+```
+
+<h3>Script (abstraction.php): </h3>
+
+```php
+<?php
+// Kelas abstrak Course
+abstract class Course
+{
+    // Metode abstrak yang harus diimplementasikan oleh kelas turunan
+    abstract public function getCourseDetails();
+}
+
+// Kelas OnlineCourse yang mengimplementasikan metode getCourseDetails()
+class OnlineCourse extends Course
+{
+    public function getCourseDetails()
+    {
+        return "Course ini diadakan secara Online";
+    }
+}
+
+// Kelas OfflineCourse yang mengimplementasikan metode getCourseDetails()
+class OfflineCourse extends Course
+{
+    public function getCourseDetails()
+    {
+        return "Course ini diadakan secara Offline";
+    }
+}
+
+// Contoh penggunaan
+$onlineCourse = new OnlineCourse();
+$offlineCourse = new OfflineCourse();
+
+echo $onlineCourse->getCourseDetails();  
+echo "<br>";
+echo $offlineCourse->getCourseDetails(); 
+?>
+```
+
+<h3>Output Abstraction: </h3>
+<img src ='https://github.com/user-attachments/assets/28a42eff-8c61-4196-8271-635548504042'>
+
+
+<h2>Tugas</h2>
 
